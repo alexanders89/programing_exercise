@@ -17,5 +17,13 @@ class Report
       false
   end
 
-
+  # def loading_list
+  #   @ = []
+  #   file = File.open("sample_data.txt", "r")
+  #   file.readlines.each do |line|
+  #     text << line.chop
+  #   end
+  #   file.close
+  # end
+  
 end
