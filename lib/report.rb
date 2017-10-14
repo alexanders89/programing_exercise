@@ -1,5 +1,6 @@
 require 'addressable/uri'
 require 'rest-client'
+require 'json'
 
 
 class Report
@@ -37,6 +38,12 @@ class Report
   def current_time
     t = Time.now - (60 * 60 + 10)
     t.strftime('%T')[0..4]
+  end
+
+  def get_content_length
+    invalid_url
+    response = RestClient.get @url
+    response.headers[:content_length]
   end
 
   def invalid_url
