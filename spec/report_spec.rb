@@ -21,11 +21,6 @@ describe Report do
       report = Report.new('bad://address')
       expect(report.valid).to eq false
     end
-
-    it 'will store validity on the report object' do
-      report = Report.new('http://bbc.co.uk/')
-
-    end
   end
 
   context 'status codes' do
@@ -63,5 +58,21 @@ describe Report do
       expect{ report.get_content_length }.to raise_error "Invalid URL"
     end
   end
+
+  context 'printing' do
+      it 'will print the output in json format' do
+      report = Report.new('http://bbc.co.uk/')
+      report.print_output
+      expect(report.output).to include "Url" && "Status_code"
+    end
+
+    it 'will print invalid in json format' do
+      report = Report.new('bad://address')
+      report.print_output
+      expect(report.output).to include "Url" && "Invalid"
+  end
+
+  end
+
 
 end
