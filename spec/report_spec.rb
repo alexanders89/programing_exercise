@@ -31,6 +31,11 @@ describe Report do
   it 'will return the date the request was made' do
     report = Report.new('http://www.bbc.co.uk/iplayer')
     expect(report.get_date).to include report.current_time
-
   end
+
+  it 'will not return the date an invalid request was made' do
+    report = Report.new('bad://address')
+    expect{ report.get_date }.to raise_error "Invalid URL"
+  end
+
 end

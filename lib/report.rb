@@ -23,12 +23,13 @@ class Report
   end
 
   def get_code
-    raise "Invalid URL" if valid_url? == false
+    invalid_url
     response = RestClient.get @url
     response.code
   end
 
   def get_date
+    invalid_url
     response = RestClient.get @url
     response.headers[:date]
   end
@@ -37,6 +38,12 @@ class Report
     t = Time.now - (60 * 60 + 10)
     t.strftime('%T')[0..4]
   end
+
+  def invalid_url
+    raise "Invalid URL" if valid_url? == false
+  end
+
+
 
   # def loading_list
   #   @ = []
