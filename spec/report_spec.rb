@@ -7,14 +7,25 @@ describe Report do
       report = Report.new('http://bbc.co.uk/')
       expect(report.url).to eq 'http://bbc.co.uk/'
     end
+
+    it 'it can be initialized with an invalid Url' do
+      report = Report.new('bad://address')
+      expect(report.url).to eq 'bad://address'
+    end
+
   end
 
   context 'valid' do
     it 'can check the validity of a given url' do
       report = Report.new('http://bbc.co.uk/')
-      # report2 = Report.new('https://pets4homes.co.uk/images/articles/1646/large/kitten-emergencies-signs-to-look-out-for-')
+      report2 = Report.new('https://pets4homes.co.uk/images/articles/1646/large/kitten-emergencies-signs-to-look-out-for-')
       expect(report.valid).to eq true
-      # expect(report2.valid).to eq true
+      expect(report2.valid).to eq true
+    end
+
+    it 'can check an invalid url' do
+      report = Report.new('bad://address')
+      expect(report.valid).to eq false
     end
   end
 
@@ -23,6 +34,11 @@ describe Report do
       report = Report.new('http://bbc.co.uk/')
       expect(report.get_code).to eq 200
     end
+    it 'will return the status code of an invalid url' do
+      report = Report.new('bad://address')
+      expect(report.get_code).to eq "Invalid Url"
+    end
+
   end
 
   context 'date' do

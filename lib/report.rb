@@ -7,12 +7,13 @@ class Report
 
   SCHEMES = %w(http https)
 
-  attr_accessor :url, :valid, :output
+  attr_accessor :url, :valid, :output, :code
 
   def initialize(url)
     @url = url
     @valid = valid_url?
     @output = output
+    @code = code
   end
 
   def valid_url?
@@ -22,13 +23,15 @@ class Report
   end
 
   def get_code
-    invalid_url
-    response = RestClient.get @url
-    response.code
+    if @valid
+      response = RestClient.get @url
+      @code = response.code
+    else
+      return "Invalid Url"
+    end
   end
 
   def get_date
-    invalid_url
     response = RestClient.get @url
     response.headers[:date]
   end
@@ -39,7 +42,6 @@ class Report
   end
 
   def get_content_length
-    invalid_url
     response = RestClient.get @url
     response.headers[:content_length]
   end
@@ -58,10 +60,6 @@ class Report
   def print_invalid_output
     output = { :Url => @url, :Error => "Invalid URL"}
     @output = JSON.pretty_generate(output)
-  end
-
-  def invalid_url
-    raise "Invalid URL" if @valid == false
   end
 
 end
