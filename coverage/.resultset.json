@@ -26,6 +26,11 @@
         1,
         1,
         null,
+        null,
+        1,
+        1,
+        2,
+        null,
         null
       ],
       "/Users/alexsatur/Desktop/programing_exercise/lib/report.rb": [
@@ -40,17 +45,18 @@
         1,
         null,
         1,
-        5,
+        6,
         null,
         null,
         1,
-        3,
-        3,
+        5,
+        5,
         null,
         0,
         null,
         null,
         1,
+        2,
         1,
         1,
         null,
@@ -67,6 +73,6 @@
         null
       ]
     },
-    "timestamp": 1507983560
+    "timestamp": 1507983756
   }
 }

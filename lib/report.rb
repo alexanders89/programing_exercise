@@ -20,6 +20,7 @@ class Report
   end
 
   def code
+    raise "Invalid URL" if valid_url? == false
     response = RestClient.get @url
     response.code
   end

@@ -22,4 +22,9 @@ describe Report do
     report = Report.new('http://www.bbc.co.uk/iplayer')
     expect(report.code).to eq 200
   end
+
+  it 'will not try to run an invalid url' do
+    report = Report.new('bad://address')
+    expect{ report.code }.to raise_error "Invalid URL"
+  end
 end
