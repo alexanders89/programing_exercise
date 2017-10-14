@@ -46,12 +46,21 @@ describe Report do
       report = Report.new('http://bbc.co.uk/')
       expect(report.get_date).to include report.current_time
     end
+    it 'will return an invalid url' do
+      report = Report.new('bad://address')
+      expect(report.get_date).to eq "Invalid Url"
+  end
+
   end
 
   context 'content length' do
       it 'will return the integer content length of the request' do
       report = Report.new('http://bbc.co.uk/')
       expect(report.get_content_length.to_i).to be_between(300000, 400000)
+    end
+    it 'will return the integer content length of the request' do
+      report = Report.new('bad://address')
+      expect(report.get_content_length).to eq "Invalid Url"
     end
   end
 
@@ -61,6 +70,12 @@ describe Report do
       report.print_output
       expect(report.output).to include "Url" && "Status_code"
     end
+    it 'will print the output in json format' do
+      report = Report.new('bad://address')
+    report.print_output
+    expect(report.output).to include "{\n  \"Url\": \"bad://address\",\n  \"Error\": \"Invalid URL\"\n}" 
+  end
+
 
   end
 

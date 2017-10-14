@@ -7,13 +7,14 @@ class Report
 
   SCHEMES = %w(http https)
 
-  attr_accessor :url, :valid, :output, :code
+  attr_accessor :url, :valid, :output, :code, :date
 
   def initialize(url)
     @url = url
     @valid = valid_url?
     @output = output
     @code = code
+    @date = date
   end
 
   def valid_url?
@@ -32,8 +33,12 @@ class Report
   end
 
   def get_date
-    response = RestClient.get @url
-    response.headers[:date]
+    if @valid
+      response = RestClient.get @url
+      @date = response.headers[:date]
+    else
+      return "Invalid Url"
+    end
   end
 
   def current_time
@@ -42,8 +47,12 @@ class Report
   end
 
   def get_content_length
-    response = RestClient.get @url
-    response.headers[:content_length]
+    if @valid
+      response = RestClient.get @url
+      response.headers[:content_length]
+    else
+      return "Invalid Url"
+    end
   end
 
   def print_output
