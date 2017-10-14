@@ -61,18 +61,7 @@ class Report
   end
 
   def invalid_url
-    raise "Invalid URL" if valid_url? == false
+    raise "Invalid URL" if @valid == false
   end
-
-
-
-  # def loading_list
-  #   @ = []
-  #   file = File.open("sample_data.txt", "r")
-  #   file.readlines.each do |line|
-  #     text << line.chop
-  #   end
-  #   file.close
-  # end
 
 end

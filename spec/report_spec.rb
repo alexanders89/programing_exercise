@@ -10,16 +10,11 @@ describe Report do
   end
 
   context 'valid' do
-    it 'cam check the validity of a given url' do
+    it 'can check the validity of a given url' do
       report = Report.new('http://bbc.co.uk/')
-      report2 = Report.new('https://pets4homes.co.uk/images/articles/1646/large/kitten-emergencies-signs-to-look-out-for-')
+      # report2 = Report.new('https://pets4homes.co.uk/images/articles/1646/large/kitten-emergencies-signs-to-look-out-for-')
       expect(report.valid).to eq true
-      expect(report2.valid).to eq true
-    end
-
-    it 'will fail if it is not a valid url' do
-      report = Report.new('bad://address')
-      expect(report.valid).to eq false
+      # expect(report2.valid).to eq true
     end
   end
 
@@ -28,11 +23,6 @@ describe Report do
       report = Report.new('http://bbc.co.uk/')
       expect(report.get_code).to eq 200
     end
-
-    it 'will not try to run an invalid url' do
-      report = Report.new('bad://address')
-      expect{ report.get_code }.to raise_error "Invalid URL"
-    end
   end
 
   context 'date' do
@@ -40,22 +30,12 @@ describe Report do
       report = Report.new('http://bbc.co.uk/')
       expect(report.get_date).to include report.current_time
     end
-
-    it 'will not return the date an invalid request was made' do
-      report = Report.new('bad://address')
-      expect{ report.get_date }.to raise_error "Invalid URL"
-    end
   end
 
   context 'content length' do
       it 'will return the integer content length of the request' do
       report = Report.new('http://bbc.co.uk/')
       expect(report.get_content_length.to_i).to be_between(300000, 400000)
-    end
-
-    it 'will not return the content length of an invalid url' do
-      report = Report.new('bad://address')
-      expect{ report.get_content_length }.to raise_error "Invalid URL"
     end
   end
 
@@ -65,12 +45,6 @@ describe Report do
       report.print_output
       expect(report.output).to include "Url" && "Status_code"
     end
-
-    it 'will print invalid in json format' do
-      report = Report.new('bad://address')
-      report.print_output
-      expect(report.output).to include "Url" && "Invalid"
-  end
 
   end
 
