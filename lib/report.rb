@@ -1,4 +1,6 @@
 require 'addressable/uri'
+require 'rest-client'
+
 
 class Report
 
@@ -17,6 +19,11 @@ class Report
       false
   end
 
+  def code
+    response = RestClient.get @url
+    response.code
+  end
+
   # def loading_list
   #   @ = []
   #   file = File.open("sample_data.txt", "r")
@@ -25,5 +32,5 @@ class Report
   #   end
   #   file.close
   # end
-  
+
 end
