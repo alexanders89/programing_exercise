@@ -20,11 +20,17 @@ describe Report do
 
   it 'will return the status code of a given url' do
     report = Report.new('http://www.bbc.co.uk/iplayer')
-    expect(report.code).to eq 200
+    expect(report.get_code).to eq 200
   end
 
   it 'will not try to run an invalid url' do
     report = Report.new('bad://address')
-    expect{ report.code }.to raise_error "Invalid URL"
+    expect{ report.get_code }.to raise_error "Invalid URL"
+  end
+
+  it 'will return the date the request was made' do
+    report = Report.new('http://www.bbc.co.uk/iplayer')
+    expect(report.get_date).to include report.current_time
+
   end
 end

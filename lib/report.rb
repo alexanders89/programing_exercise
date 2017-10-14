@@ -12,6 +12,9 @@ class Report
     @url = url
   end
 
+  # expected: 2017-10-14 13:38:03.118789000 +0100
+  #           got: "Sat, 14 Oct 2017 12:38:04 GMT"
+
   def valid_url?
     parsed = Addressable::URI.parse(@url) or return false
     SCHEMES.include?(parsed.scheme)
@@ -19,10 +22,20 @@ class Report
       false
   end
 
-  def code
+  def get_code
     raise "Invalid URL" if valid_url? == false
     response = RestClient.get @url
     response.code
+  end
+
+  def get_date
+    response = RestClient.get @url
+    response.headers[:date]
+  end
+
+  def current_time
+    t = Time.now - (60 * 60 + 10)
+    t.strftime('%T')[0..4]
   end
 
   # def loading_list
