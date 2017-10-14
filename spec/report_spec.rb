@@ -9,17 +9,22 @@ describe Report do
     end
   end
 
-  context 'validity' do
+  context 'valid' do
     it 'cam check the validity of a given url' do
       report = Report.new('http://bbc.co.uk/')
       report2 = Report.new('https://pets4homes.co.uk/images/articles/1646/large/kitten-emergencies-signs-to-look-out-for-')
-      expect(report.valid_url?).to eq true
-      expect(report2.valid_url?).to eq true
+      expect(report.valid).to eq true
+      expect(report2.valid).to eq true
     end
 
     it 'will fail if it is not a valid url' do
       report = Report.new('bad://address')
-      expect(report.valid_url?).to eq false
+      expect(report.valid).to eq false
+    end
+
+    it 'will store validity on the report object' do
+      report = Report.new('http://bbc.co.uk/')
+
     end
   end
 
