@@ -1,4 +1,6 @@
 require './report'
+require './multireport'
+
 
 @list = []
 
@@ -52,6 +54,16 @@ def run_urls
     report.print_output
     puts report.output
   end
+  @list = []
+end
+
+def load_list
+  file = File.open("sample_data.txt", "r")
+  file.readlines.each do |line|
+    @list << line.chop
+  end
+  file.close
+  run_urls
 end
 
 interactive_menu

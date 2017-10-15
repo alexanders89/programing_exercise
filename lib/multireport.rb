@@ -7,6 +7,7 @@ class Multireport
   def initialize
     @list = load_list
     @run = false
+    @reports = []
   end
 
   def run_list
@@ -26,4 +27,12 @@ class Multireport
     file.close
     list
   end
+
+  def print_list
+    @list.each do |report|
+      report.print_output
+      report.output
+    end
+  end
+
 end
