@@ -7,6 +7,7 @@ def interactive_menu
     puts "===================="
     puts "1. Check Individual URL"
     puts "2. Check Multiple URL"
+    puts "3. Load URL list"
     puts "9. Exit"
     selection = gets.chomp
     case selection
@@ -14,6 +15,8 @@ def interactive_menu
       get_url
     when "2"
       check_multi_url
+    when "3"
+      load_list
     when "9"
       exit
     end

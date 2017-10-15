@@ -1,5 +1,5 @@
 require 'addressable/uri'
-require 'rest-client'
+require 'HTTParty'
 require 'json'
 
 
@@ -25,7 +25,7 @@ class Report
 
   def get_code
     if @valid
-      response = RestClient.get @url
+      response = HTTParty.get @url
       @code = response.code
     else
       return "Invalid Url"
@@ -34,8 +34,8 @@ class Report
 
   def get_date
     if @valid
-      response = RestClient.get @url
-      @date = response.headers[:date]
+      response = HTTParty.get @url
+      @date = response.headers["date"]
     else
       return "Invalid Url"
     end
@@ -48,8 +48,8 @@ class Report
 
   def get_content_length
     if @valid
-      response = RestClient.get @url
-      response.headers[:content_length]
+      response = HTTParty.get @url
+      response.headers["content-length"]
     else
       return "Invalid Url"
     end

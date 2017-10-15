@@ -5,30 +5,25 @@ class Multireport
   attr_accessor :list
 
   def initialize
-    @list = list
+    @list = load_list
+    @run = false
   end
 
   def run_list
-    @owliver = []
-    @list.each_with_index do |url, index|
-      index = Report.new(url)
-      @owliver << index
+    raise "Cannot run twice" if @run == true
+    @list = @list.map do |url|
+      report = Report.new(url)
     end
-    @owliver.each do |url|
-      puts url.get_code
-    end
+    @run = true
   end
 
   def load_list
-    @list = []
+    list = []
     file = File.open("sample_data.txt", "r")
     file.readlines.each do |line|
       list << line.chop
     end
     file.close
+    list
   end
 end
-
-report = Multireport.new
-report.load_list
-report.run_list
