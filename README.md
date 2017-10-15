@@ -57,4 +57,6 @@ From here there are individual methods to fetch each bit of info needed using th
 
 Once the report class was built and tested I went to work building a class that can handle multiple url's as I didn't want this functionality in the one class.
 
-Once the working components were tested and functional I built a simple interface to take input from the user and run the test. 
+Once the working components were tested and functional I built a simple interface to take input from the user and run the test.
+
+Git commit history included.
