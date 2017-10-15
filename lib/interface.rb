@@ -1,5 +1,7 @@
 require './report'
 
+@list = []
+
 def interactive_menu
   loop do
     puts "===================="
@@ -26,17 +28,27 @@ def get_url
 end
 
 def check_multi_url
-    puts 'Please enter the number dish you would like to order'
-    index = gets.chomp
-    while !index.empty? do
-      puts 'Please enter the quantity'
-      quantity = gets.chomp.to_i
-      puts "#{quantity} x #{@students[index.to_i - 1][:name]} have been added to your basket"
-      @basket << [@students[(index.to_i) -1][:name], quantity, @students[(index.to_i) - 1][:price]]
-      puts 'Please enter the number dish you would like to order'
-      index = gets.chomp
+    puts "Enter URL, to finish press return twice."
+    url = gets.chomp
+    while !url.empty? do
+      puts "#{url} has been added"
+      @list << url
+      puts "Enter URL, to finish press return twice."
+      url = gets.chomp
     end
+    puts "You have added #{@list.count} URL's to check"
+    puts @list
+    sleep(2)
+    run_urls
+    @list = []
+end
 
+def run_urls
+  @list.each do |url|
+    report = Report.new(url)
+    report.print_output
+    puts report.output
+  end
 end
 
 interactive_menu
