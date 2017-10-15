@@ -7,7 +7,7 @@ require 'colorize'
 @table = []
 
 def interactive_menu
-  puts "\e[H\e[2J"
+  clear_screen
   loop do
     puts "===================="
     puts "1. Check Individual URL"
@@ -29,7 +29,7 @@ def interactive_menu
 end
 
 def get_url
-  puts "\e[H\e[2J"
+  clear_screen
   puts "Enter URL:"
   report = Report.new(gets.chomp)
   report.print_output
@@ -37,7 +37,7 @@ def get_url
 end
 
 def check_multi_url
-  puts "\e[H\e[2J"
+  clear_screen
   puts "Enter URL, to finish press return twice."
   url = gets.chomp
     while !url.empty? do
@@ -87,15 +87,8 @@ def build_table
     puts table
 end
 
-def view_basket
-  header
-  rows = []
-  @basket.each { |dish, quantity, price| rows << [quantity,
-  dish, price, price.to_i * quantity.to_i ] }
-  table = Terminal::Table.new :headings => ['Qty'.red, 'Dish'.red, 'Price'.red, 'Total'.red],
-  :rows => rows
-  puts table
-  sum_basket
+def clear_screen
+  puts "\e[H\e[2J"
 end
 
 

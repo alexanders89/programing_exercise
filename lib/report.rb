@@ -70,5 +70,4 @@ class Report
     output = { :Url => @url, :Error => "Invalid URL"}
     @output = JSON.pretty_generate(output)
   end
-
 end

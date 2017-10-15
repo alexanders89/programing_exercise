@@ -34,5 +34,4 @@ class Multireport
       report.output
     end
   end
-
 end

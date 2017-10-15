@@ -1,0 +1,119 @@
+commit ee60de3e7911efdee527626805c56f3444c1fc47
+Author: Alex <alex.satur89@gmail.com>
+Date:   Sun Oct 15 15:39:26 2017 +0100
+
+    finished itnerface, table building after the list of urls has run
+
+commit c5824cac132100216174dd3be879b04590eeb475
+Author: Alex <alex.satur89@gmail.com>
+Date:   Sun Oct 15 14:12:05 2017 +0100
+
+    refactoring
+
+commit 57ee3b3a6db14b0b115f64844aaa7b6ff0909e4b
+Author: Alex <alex.satur89@gmail.com>
+Date:   Sun Oct 15 13:28:28 2017 +0100
+
+    can run multiple report
+
+commit c1397a7332e44870947e00a5a10b2776583cb387
+Author: Alex <alex.satur89@gmail.com>
+Date:   Sun Oct 15 11:31:00 2017 +0100
+
+    multiple urls can be checked and output
+
+commit 8ff447d5a560860804873b865cb6b7bc0b105623
+Author: Alex <alex.satur89@gmail.com>
+Date:   Sat Oct 14 19:16:47 2017 +0100
+
+    started building interface
+
+commit 75d6a0599c287aa021c8bc399e50ed3aead8730f
+Author: Alex <alex.satur89@gmail.com>
+Date:   Sat Oct 14 17:35:38 2017 +0100
+
+    seem to have fixed it. now works with all broken url and working ones
+
+commit 2bf567816c41b6cd0c6d3b01ebb3a53a4ecc6d17
+Author: Alex <alex.satur89@gmail.com>
+Date:   Sat Oct 14 17:21:21 2017 +0100
+
+    more effective way of dealing with invalid url
+
+commit ec97691e1809a63dc5a86a084a949f10df1d8c6e
+Author: Alex <alex.satur89@gmail.com>
+Date:   Sat Oct 14 16:43:22 2017 +0100
+
+    refactor after breaking it all
+
+commit 28429033cf65f313379e373feeae105b623484f9
+Author: Alex <alex.satur89@gmail.com>
+Date:   Sat Oct 14 15:10:45 2017 +0100
+
+    refactor with json output
+
+commit fffc2f39b0ea327888584cb79d5936b09616e729
+Author: Alex <alex.satur89@gmail.com>
+Date:   Sat Oct 14 14:48:40 2017 +0100
+
+    valid url is now stored in the object on initialization
+
+commit f35761acbb71ff29f6af3265a4ad89938bfa0a2e
+Author: Alex <alex.satur89@gmail.com>
+Date:   Sat Oct 14 14:14:21 2017 +0100
+
+    reports will also now return the content length of a given url
+
+commit 3b32f6a737b14040f6119f1c020a5205f3217152
+Author: Alex <alex.satur89@gmail.com>
+Date:   Sat Oct 14 13:57:05 2017 +0100
+
+    refactor with new method for defining an invalid url
+
+commit 0f33bd1ff9a54fb1b383993399b5e9804f5b80e5
+Author: Alex <alex.satur89@gmail.com>
+Date:   Sat Oct 14 13:50:18 2017 +0100
+
+    reports now return time with bst to gmt conversion
+
+commit 8868237b1e1e55ff6dc8451e61fbeea70d9bcb90
+Author: Alex <alex.satur89@gmail.com>
+Date:   Sat Oct 14 13:24:14 2017 +0100
+
+    will not return a status code of an invalid url
+
+commit 38946ebeb3a3003f6b4624d8db2f945ed10b745a
+Author: Alex <alex.satur89@gmail.com>
+Date:   Sat Oct 14 13:20:41 2017 +0100
+
+    can return status code from a given url
+
+commit c9d2c057bb25774d3c59943b8e6c5f8215ad066e
+Author: Alex <alex.satur89@gmail.com>
+Date:   Thu Oct 12 18:36:19 2017 +0100
+
+    tests green, added a simple interface but this may be removed later
+
+commit 431a85d03f533f707a57990af37a72cd89bac87d
+Author: Alex <alex.satur89@gmail.com>
+Date:   Thu Oct 12 17:43:47 2017 +0100
+
+    first tests passing, it is able to validate a given url on the report class
+
+commit b74b5217499269f541a6eab101d55b2814df58dd
+Author: Alex <alex.satur89@gmail.com>
+Date:   Thu Oct 12 16:45:30 2017 +0100
+
+    removed bad formatting of readme
+
+commit fcd80ec55b6db101433e2df933d349eb69eb1b26
+Author: Alex <alex.satur89@gmail.com>
+Date:   Thu Oct 12 16:43:34 2017 +0100
+
+    added file structure and gem files
+
+commit f215a7296ae333dfdc3a2fa1b09af875fe43c2df
+Author: Alex <alex.satur89@gmail.com>
+Date:   Thu Oct 12 16:39:24 2017 +0100
+
+    first commit

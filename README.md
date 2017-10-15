@@ -34,6 +34,25 @@ Programming Exercise, September 2017
 * The program should cope gracefully when it makes a request to a slow or non-responsive web server, e.g. it could time out the request after ten seconds.
 * The program should have a good set of unit tests.
 * It must be possible to perform a test run, consisting of all unit tests, without accessing the Internet.
+
+## How to use
+
+Note - This was built using Ruby 2.4.0
+
+1. Clone this repo and run bundle to install the necessary gems
+2. Change into the lib directory and run ruby interface.rb
+3. This will open the user interface
+* 1 - This is used to check individual URL's one at a time
+* 2 - Check multiple URL will let you build a list to check in one go
+* 3 - This will show a list from the directory 'sample_data' and receive a filename to load.
+3. The checker can also be run in irb by requiring './lib/report', creating a new report with a given url and printing the output to the terminal
+4. To run the rspec tests, in the main directory run rspec. Note if you are also running multireport spec there will need to be data in the sample_data folder.
+
+
 ## My Approach
 
-I will use simplecov to test coverage
+Using a tdd approach I started by first building a report class that can handle single url requests.
+This created a new report object with each url passed into it on initialization.
+From here there are individual methods to fetch each bit of info needed using the HTTParty client. If I were doing this again I would probably refactor so only one request is made for each report to speed things up.
+
+Once the report class was built and tested I went to work building a class that can handle multiple url's as I didn't want this functionality in the one class.

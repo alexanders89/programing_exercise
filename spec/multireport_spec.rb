@@ -17,10 +17,4 @@ describe Multireport do
     report.run_list
     expect{ report.run_list }.to raise_error "Cannot run twice"
   end
-
-  # it 'will print the output in json format' do
-  #   report = Multireport.new
-  #   report.run_list
-  #   expect(report.print_list).to include @url
-  # end
 end
