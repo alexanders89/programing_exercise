@@ -20,7 +20,7 @@ class Multireport
 
   def load_list
     list = []
-    file = File.open("sample_data.txt", "r")
+    file = File.open("./sample_data/sample_data.txt", "r")
     file.readlines.each do |line|
       list << line.chop
     end

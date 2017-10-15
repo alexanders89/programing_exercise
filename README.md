@@ -56,3 +56,5 @@ This created a new report object with each url passed into it on initialization.
 From here there are individual methods to fetch each bit of info needed using the HTTParty client. If I were doing this again I would probably refactor so only one request is made for each report to speed things up.
 
 Once the report class was built and tested I went to work building a class that can handle multiple url's as I didn't want this functionality in the one class.
+
+Once the working components were tested and functional I built a simple interface to take input from the user and run the test. 
